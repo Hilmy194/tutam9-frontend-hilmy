@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { fetchTransactions } from "../api";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -9,18 +10,10 @@ function Dashboard() {
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-    const fetchTransactions = async () => {
+    const loadTransactions = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const response = await fetch("https://tutam9-backend-hilmy-production.up.railway.app/api/transactions", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error("Failed to fetch transactions");
-        }
-        const data = await response.json();
+        const response = await fetchTransactions();
+        const data = response.data;
 
         // Hitung total income, expense, dan balance
         const income = data
@@ -37,7 +30,7 @@ function Dashboard() {
       }
     };
 
-    fetchTransactions();
+    loadTransactions();
   }, []);
 
   const getBalanceColor = () => {
