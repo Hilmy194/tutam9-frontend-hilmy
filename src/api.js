@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://tutam9-backend-hilmy-production.up.railway.app/";
 
 export const login = (data) => axios.post(`${API_URL}/auth/login`, data);
 export const register = (data) => axios.post(`${API_URL}/user/register`, data);
 export const fetchTransactions = (token) =>
-  axios.get("http://localhost:5000/api/transactions", {
+  axios.get("https://tutam9-backend-hilmy-production.up.railway.app//api/transactions", {
     headers: { Authorization: `Bearer ${token}` }, // Kirim token di header Authorization
   });
 
