@@ -18,6 +18,7 @@ function Navbar() {
     >
       <h1 className="text-xl font-bold">Finance Tracker</h1>
       <div className="flex gap-4">
+        {/* Tautan ke Dashboard */}
         <Link
           to="/dashboard"
           className="px-4 py-2 rounded hover:bg-gray-700 text-white"
@@ -27,6 +28,7 @@ function Navbar() {
         >
           Home
         </Link>
+        {/* Tautan ke Add Transaction */}
         <Link
           to="/dashboard/add"
           className="px-4 py-2 rounded hover:bg-gray-700 text-white"
@@ -36,6 +38,7 @@ function Navbar() {
         >
           Add Transaction
         </Link>
+        {/* Tautan ke History */}
         <Link
           to="/dashboard/history"
           className="px-4 py-2 rounded hover:bg-gray-700 text-white"
@@ -45,6 +48,7 @@ function Navbar() {
         >
           History
         </Link>
+        {/* Tombol Logout */}
         <button
           onClick={logout}
           className="px-4 py-2 rounded hover:bg-red-700 text-white"
